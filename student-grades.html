@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Grades</title>
+    <link rel="stylesheet" href="code-chall1.css">
+</head>
+<body>
+    <h1>Student Results</h1>
+    <input type="text" placeholder="Student Name" class="js-name-input">
+    <input type="number" placeholder="Marks" id="js-marks-input">
+    <!-- Button to trigger grade calculation -->
+    <button onclick="calculateGrade()">Enter</button>
+    <!-- Display area for showing the grade output -->
+    <div id="gradeOutput"></div>
+
+    <script>
+        // Alert message for inputting student marks
+        alert('Input student marks');
+        
+        // Function for when key is pressed
+        function onEnter (event) {
+            if (event ==='Enter') {
+                // Calculation for getting and displaying the grades
+            }
+        }
+        
+        // Function to calculate student grade based on input marks
+        function calculateGrade(){ 
+            // Retrieve marks entered by the user
+            let marks = Number(document.getElementById('js-marks-input').value)
+
+            // Initialize variable to store the grade result
+            let result = '';
+
+            // Determine the grade based on the marks entered
+            if (marks > 79) {
+                result='A';
+            } else if (marks <= 79 && marks >= 60 ) {
+                result='B';
+            } else if (marks <= 79 && marks > 49) {
+                result='C';
+            } else if (marks <= 49 && marks >= 40) {
+                result='D';
+            } else if (marks < 40) {
+                result='E';
+            }
+
+            // Display the calculated grade 
+            document.getElementById('gradeOutput').innerText ="Student grade is:" + result;
+        }
+    </script>
+</body>
+</html>

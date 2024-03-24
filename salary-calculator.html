@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Net Salary Calculator</title>
+    <link rel="stylesheet" href="week-1-code-challenge-3.css">
+</head>
+<body>
+    <div class="text-container">
+        <h1 class="typing">Input Basic Salary and Benefits</h1>
+    </div>
+    <div class="textbox-container">
+        <!-- Input field for basic salary -->
+        <input type="number" placeholder="Basic Salary" id="basicSalary">
+        <!-- Input field for benefits -->
+        <input type="number" placeholder="Benefits" id="benefits" oninput="calculateTax()">
+        <!-- Display area for showing net salary -->
+        <div id="individualNetSalary"></div>
+    </div>
+
+    <script>
+        // Function to calculate tax and net salary
+        function calculateTax (){
+            // Get basic salary and benefits entered by user
+            let salary = Number(document.getElementById('basicSalary').value);
+            let benefit = Number(document.getElementById('benefits').value);
+            // Calculate gross salary
+            let grossSalary = salary + benefit;
+            let tax = '';
+            // Calculate tax based on gross salary 
+            if (grossSalary > 1 && grossSalary < 24000){
+                tax= grossSalary * 0.1;
+            } else if (grossSalary > 24001 && grossSalary < 32333){
+                tax= (24000*0.1) + ((grossSalary-24000)*0.25);
+            } else if (grossSalary > 32333){
+                tax= (24000*0.1) + ((32333-24000)*0.25) + ((grossSalary-32333)*0.3);
+            }
+            // Define personal relief and calculate net tax
+            const personalRelief = 2400;
+            let netTax = tax - personalRelief;
+            // Define NSSF and NHIF deductions
+            const nssfDeductions = 2160;
+            const nhifDeductions = 1700;
+            // Calculate gross tax
+            let grossTax = netTax + nhifDeductions + nssfDeductions;
+            // Calculate net salary
+            let netSalary = grossSalary - grossTax;
+            // Display net salary 
+            document.getElementById('individualNetSalary').innerText='The Net Salary is:' + netSalary;
+        }
+    </script>
+    
+</body>
+</html>

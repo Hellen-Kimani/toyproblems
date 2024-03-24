@@ -1,0 +1,101 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5px;
+    background-color:black ;
+}
+.typing{
+    color: #f6f5f5;
+    font-size: large;
+    font-weight: 900;
+    width: 0;
+    white-space: nowrap;
+    border-right: 0.1rem solid black;
+    overflow: hidden;
+    animation: typing steps(20,end) forwards infinite 6s;
+
+}
+@keyframes typing {
+    0%{
+        width: 0;
+    }
+    50%{
+        width: 100%;
+    }
+}
+
+.textbox-container {
+    align-items: center;
+    padding: 20px;
+    width: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    background:black;
+    border-radius: 14em;
+    box-shadow: 5px 5px 50px palevioletred ;
+    animation: animateBg 5s linear infinite;
+
+}
+@keyframes animateBg {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+.textbox-container input {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    padding: 14px 10px;
+    width: 200px;border: 3px solid rgb(241, 112, 216);
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+}
+.textbox-container input [type="number"]:focus {
+    width: 280px;
+    border-color: blueviolet;
+}
+.textbox-container input[placeholder="Basic Salary"]{
+    border: 0;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 100%;
+    outline: none;
+    padding: 14px 40px;
+    border: 3px solid gold;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.textbox-container input[placeholder="Basic Salary"]:hover{
+    background: rgb(63, 63, 144);
+}
+.textbox-container input[placeholder="Benefits"] {
+    border: 0;
+    background: none;
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+    font-size: 100%;
+    outline: none;
+    padding: 14px 40px;
+    border: 3px solid gold;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+    cursor: pointer;
+}
+.textbox-container input[placeholder="Benefits"] {
+    background: rgb(63, 63, 144);
+}

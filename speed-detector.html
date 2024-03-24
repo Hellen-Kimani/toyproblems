@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Detector</title>
+    <link rel="stylesheet" href="week-1-code-challenge-2.css">
+</head>
+<body>
+    <div id="text-container">
+        <h1 id="typing">Input Car Speed</h1>
+    </div>
+    <div id="textbox-container">
+        <!-- Input field for car speed in kilometers per hour (km/h) -->
+        <input type="number" placeholder="Speed in km/h" id="inputSpeed" oninput="inputtedSpeed()">
+    </div>
+    <!-- Display area for showing output -->
+    <div id="outputPoint"></div>
+
+    <script>
+        // Function to handle input of car speed
+        function inputtedSpeed () {
+            // Get the speed entered by user
+            let speed = Number(document.getElementById('inputSpeed').value);
+            // Define the speed limit
+            const speedLimit = 70;
+            let output = '';
+            let outputPoints = '';
+            // Check if speed is within the limit
+            if (speed <= speedLimit) {
+                // Display "OK" if within the limit
+                document.getElementById('outputPoint').innerText='OK';
+            }
+            // If speed is over the limit
+            if (speed > speedLimit){
+                // Calculate excess speed
+                let increase = speed - speedLimit;
+                // Calculate demerit points
+                let increment = increase/5;
+                // Demerit points calculation
+                demeritpoint = 1 * increment;
+            }
+            // Display demerit points
+            document.getElementById('outputPoint').innerText = 'Points:' + demeritpoint;
+        }
+    </script>
+    
+</body>
+</html>

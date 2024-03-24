@@ -1,0 +1,8 @@
+* {
+    align-items: center;
+}
+h1 {
+text-align: justify;
+font-weight: 400;
+text-decoration: underline solid rgb(186, 7, 120);
+}
